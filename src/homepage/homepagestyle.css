@@ -1,0 +1,46 @@
+/* General Layout */
+.homepage-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Styling for the Title */
+.title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-container input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Chart Styling */
+.chart-container {
+  max-width: 600px;
+  margin: 30px auto;
+}
