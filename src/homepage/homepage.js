@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Scatter } from 'react-chartjs-2';
 import './homepagestyle.css'; // Import the CSS file here
 import { Chart, registerables } from 'chart.js';
-Chart.register( ...registerables );
+import zoomPlugin from 'chartjs-plugin-zoom';
+import Navbar from "../navbar/navbar";
 
+Chart.register( ...registerables, zoomPlugin );
 
 export const HomePage = () =>
 {
@@ -23,6 +25,17 @@ export const HomePage = () =>
       setDataPoints( [...dataPoints, currentPoint] );
       setCurrentPoint( { x: '', y: '' } );
     }
+  };
+
+  const deleteLastPoint = () =>
+  {
+    const newPoints = dataPoints.slice( 0, -1 );
+    setDataPoints( newPoints );
+  };
+
+  const refreshChart = () =>
+  {
+    setDataPoints( [] );
   };
 
   const data = {
@@ -53,10 +66,29 @@ export const HomePage = () =>
           text: 'Y value'
         }
       }
+    },
+    plugins: {
+      zoom: {
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'xy',
+        },
+        pan: {
+          enabled: true,
+          mode: 'xy',
+        }
+      }
     }
   };
 
   return (
+    <>
+      <Navbar />
     <div className="homepage-container">
       <h1 className="title">Data Input and Visualization</h1>
       <form onSubmit={handleSubmit} className="form-container">
@@ -76,9 +108,12 @@ export const HomePage = () =>
         />
         <button type="submit">Add Point</button>
       </form>
+        <button onClick={deleteLastPoint}>Delete Last Point</button>
+        <button onClick={refreshChart}>Refresh Chart</button>
       <div className="chart-container">
         <Scatter data={data} options={options} />
       </div>
-    </div>
+      </div>
+    </>
   );
 };

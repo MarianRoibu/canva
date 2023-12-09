@@ -1,0 +1,46 @@
+/* General Layout for Pie Chart Page */
+.pie-chart-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Styling for the Title */
+.pie-chart-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.pie-chart-form {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pie-chart-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pie-chart-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pie-chart-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Chart Container Styling */
+.pie-chart {
+  max-width: 600px;
+  margin: 30px auto;
+}
